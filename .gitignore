@@ -32,6 +32,10 @@
 *.app
 main
 
+# I/O Files
+*.in
+*.out
+
 # Emacs files
 *.cpp~*
 *.cpp.*
