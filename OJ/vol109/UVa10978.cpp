@@ -15,27 +15,25 @@ int main(){
   cin.tie(0);
   cout.tie(0);
   int n {};
-  unsigned long long available = 0; // better to use uint64_t but we need 52+ bits always
-  vector<string> words( MAXN ), cards( MAXN );
-  vector<int> positions( MAXN );
+  string card {}, word {};
+  bool used[MAXN] {};
   while( cin >> n, n ){
     for( int i = 0; i < n; ++ i )
-      cin >> cards[i] >> words[i];
-    available = (1 << n) - 1; // quickly set n first bits
-    int pos_idx {}, bit_idx {}, word_size = words[0].length();
-    while( available ){
-      word_size -= (bool)(available & (1 << bit_idx)); // check `bit_idx` bit
-      if( word_size == 0 ){
-	positions[bit_idx] = pos_idx;
-	++ pos_idx;
-	if( available )
-	  word_size = words[pos_idx].length();
-	available &= ~(1 << bit_idx);
+      used[i] = false;
+    vector<string> positions( MAXN );
+    int curr_pos {-1};
+    for( int i = 0; i < n; ++ i ){
+      cin >> card >> word;
+      int len = word.length();
+      while( len ){
+	curr_pos = (curr_pos + 1) % n;
+	if( not used[curr_pos] ) -- len;
       }
-      bit_idx = (bit_idx + 1) % n;
+      positions[curr_pos] = card;
+      used[curr_pos] = true;
     }
     for( int i = 0; i < n; ++ i )
-      cout << cards[positions[i]] << (i + 1 == n ? '\n' : ' ');
+      cout << positions[i] << (i + 1 == n ? '\n' : ' ');
   }
   return 0;
 }
