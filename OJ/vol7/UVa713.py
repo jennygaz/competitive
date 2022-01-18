@@ -1,3 +1,7 @@
+# UVa 713 - Adding Reversed Numbers
+# Solution: Do as told: Read numbers, reverse them, add them, reverse the answer, print
+# by jennyga
+
 import sys
 
 
