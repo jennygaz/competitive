@@ -6,9 +6,10 @@ import sys
 
 
 def solve( n, a ):
-    ans = 0
+    ans, base = 0, a
     for i in range(1, n + 1):
-        ans += i * a ** i
+        ans += i * base
+        base *= a
     return ans
 
 line = sys.stdin.readline()
