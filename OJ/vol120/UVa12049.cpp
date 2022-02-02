@@ -25,7 +25,7 @@ int main(){
       lhs[tmp] += 1;
       keys.emplace( tmp );
     }
-    for( int i = 0; i < n; ++ i ){
+    for( int i = 0; i < m; ++ i ){
       cin >> tmp;
       rhs[tmp] += 1;
       keys.emplace( tmp );
