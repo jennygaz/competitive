@@ -5,7 +5,6 @@
 #include <iostream>
 #include <unordered_map>
 #include <array>
-#include <vector>
 
 using namespace std;
 
@@ -31,21 +30,21 @@ int main(){
       cin >> tmp;
       chocolates[tmp][2] = 1;
     }
-    vector<int> uniq[3] {}, exclude[3] {};
+    int uniq[3] {}, exclude[3] {};
     for( auto& kp : chocolates ){
       int bitmask = kp.second[0] | (kp.second[1] << 1) | (kp.second[2] << 2);
       if( bitmask == 1 ) // only L
-	uniq[0].emplace_back( kp.first );
+	++ uniq[0];
       else if( bitmask == 2 ) // only R
-	uniq[1].emplace_back( kp.first );
+	++ uniq[1];
       else if( bitmask == 4 ) // only S
-	uniq[2].emplace_back( kp.first );
+	++ uniq[2];
       else if( bitmask == 6 ) // not L
-	exclude[0].emplace_back( kp.first );
+	++ exclude[0];
       else if( bitmask == 5 ) // not R
-	exclude[1].emplace_back( kp.first );
+	++ exclude[1];
       else if( bitmask == 3 ) // not S
-	exclude[2].emplace_back( kp.first );
+	++ exclude[2];
     }
     cout << "Case #" << CASE << ":\n";
     for( int i = 0; i < 3; ++ i )
