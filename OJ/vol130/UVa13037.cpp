@@ -48,7 +48,7 @@ int main(){
     }
     cout << "Case #" << CASE << ":\n";
     for( int i = 0; i < 3; ++ i )
-      cout << uniq[i].size() << " " << exclude[i].size() << '\n';
+      cout << uniq[i] << " " << exclude[i] << '\n';
   }
   return 0;
 }
