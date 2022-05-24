@@ -22,12 +22,14 @@ int main(){
 	max_val = values[i];
     }
     int dist = MAXN * MAXN;
-    for( int i = min_val; i <= max_val; ++ i ){
-      int curr_dist {};
-      for( int j = 0; j < n; ++ j )
-	curr_dist += abs( i - values[j] );
-      dist = min( dist, curr_dist );
-    }
+    nth_element( values, values + n/2, values + n );
+    int left_dist {}, right_dist {};
+    for( int i = 0; i < n; ++ i )
+      left_dist += abs( values[i] - values[n/2] );
+    nth_element( values, values + n/2 + 1, values + n );
+    for( int i = 0; i < n; ++ i )
+      right_dist += abs( values[i] - values[n/2 + 1] );
+    dist = min( left_dist, right_dist );
     cout << dist << '\n';
   }
   return 0;
