@@ -29,7 +29,7 @@ int main(){
       }
     }
     if( ans > 0 )
-      cout << "The nicest part of route " << CASE << " is between " << left_idx << " and " << right_idx << '\n';
+      cout << "The nicest part of route " << CASE << " is between stops " << left_idx << " and " << right_idx << '\n';
     else
       cout << "Route " << CASE << " has no nice parts\n";
   }
