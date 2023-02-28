@@ -41,3 +41,6 @@ main
 *.cpp~*
 *.cpp.*
 *.~*
+
+# Downloaded Problem Statements
+**/statements
