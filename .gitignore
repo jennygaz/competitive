@@ -35,6 +35,8 @@ main
 # I/O Files
 *.in
 *.out
+input
+output
 
 # Emacs files
 *.cpp~*
